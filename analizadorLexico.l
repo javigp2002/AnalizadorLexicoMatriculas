@@ -11,15 +11,16 @@ DIGITOS   [0-9]{4}
 CONSONANTESEUROPEAS [B-DF-HJ-NPR-TV-Z]{3}
 ID       [a-z][a-z0-9]*
 PROVINCIAL ([A-Z][A-Z]?{DIGITOS}[A-Z]{2})
-EUROPEAS {DIGITOS}[ -]*{CONSONANTESEUROPEAS}
-FUERZAESTADO ("PGC"|"CNP"|"ET"|"EA"|"FN"|"E"|"CGPC")[ -]*{DIGITOS}[ -]*[B-DF-HJ-NPR-TV-Z]
-CICLOMOTOR "C"{DIGITOS}{CONSONANTESEUROPEAS}
-DIPLOMATICAS ("CD"|"CC"|"TA"|OI)[ -]*[0-9]{2}[ -]*[0-9]{3}
-REMOLQUES "R"[ -]*{DIGITOS}[ -]*{CONSONANTESEUROPEAS}
-QUADS "E"[ -]*{DIGITOS}[ -]*{CONSONANTESEUROPEAS}
-PROVISIONAL ("P"|"S"|"B")[ -]*{DIGITOS}[ -]*{CONSONANTESEUROPEAS}
-TURISTICAS "T"[ -]*{DIGITOS}[ -]*{CONSONANTESEUROPEAS}
-HISTORICO "H"[ -]*{DIGITOS}[ -]*{CONSONANTESEUROPEAS}
+EUROPEAS (\b)?{DIGITOS}[ -]*{CONSONANTESEUROPEAS}([^A-Za-z0-9]|"\0")
+
+FUERZAESTADO  (\b)?("PGC"|"CNP"|"ET"|"EA"|"FN"|"E"|"CGPC")[ -]*{DIGITOS}[ -]*[B-DF-HJ-NPR-TV-Z]([^A-Za-z0-9]|"\0")
+CICLOMOTOR  (\b)?"C"[ -]*{DIGITOS}[ -]*{CONSONANTESEUROPEAS}([^A-Za-z0-9]|"\0")
+DIPLOMATICAS  (\b)?("CD"|"CC"|"TA"|OI)[ -]*[0-9]{2}[ -]*[0-9]{3}([^A-Za-z0-9]|"\0")
+REMOLQUES  (\b)?"R"[ -]*{DIGITOS}[ -]*{CONSONANTESEUROPEAS}([^A-Za-z0-9]|"\0")
+QUADS  (\b)?"E"[ -]*{DIGITOS}[ -]*{CONSONANTESEUROPEAS}([^A-Za-z0-9]|"\0")
+PROVISIONAL  (\b)?("P"|"S"|"B")[ -]*{DIGITOS}[ -]*{CONSONANTESEUROPEAS}([^A-Za-z0-9]|"\0")
+TURISTICAS  (\b)?"T"[ -]*{DIGITOS}[ -]*{CONSONANTESEUROPEAS}([^A-Za-z0-9]|"\0")
+HISTORICO  (\b)?"H"[ -]*{DIGITOS}[ -]*{CONSONANTESEUROPEAS}([^A-Za-z0-9]|"\0")
 
 %%
 
@@ -31,11 +32,12 @@ HISTORICO "H"[ -]*{DIGITOS}[ -]*{CONSONANTESEUROPEAS}
 
 {EUROPEAS}   {
         matriculas++;
-       /*char * x ;
+       char * x ;
         x = yytext;
-        x[strlen(x) - 1] = '\0';*/
-            printf( "MATRICULA EUROPEA ACTUAL: %s\n", yytext);
-            }
+        if (  x[strlen(x) - 1] != '\0')
+                x[strlen(x) - 1] = '\0';
+        printf( "MATRICULA EUROPEA ACTUAL: %s\n", x);
+}
 
 
 {FUERZAESTADO}+   {
