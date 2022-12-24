@@ -1,5 +1,5 @@
 HOLA MI SOY 2002 CHRISTIAN Y TENGO EL COCHE AUDIO CON MATRICULA 3333ZZZ AUNQUE TAMBIEN TENGOUN
-TOYOTA 4444-ZCD VIVO EN 3 2133CDC s Y TENGO UN TT0000F
+TOYOTA 4444-ZCD VIVO EN 3 2133CDC s Y TENGO UN T0000F
 
 matrícula quad válida: E0000BFF
 
@@ -13,4 +13,8 @@ matrícula remolque válida: R-1234-FGZ
 
 matrícula provisional válida: S-2321-ZZ
 
-matrícula provincial válida: AA1515AA
+matrícula provincial válida: AA-1515-AA
+
+matrícula turística válida: T 1234 BF
+
+matrícula histórica válida: H 1234 BF

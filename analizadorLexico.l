@@ -26,16 +26,18 @@ int compruebaSintaxis(char * matricula) {
 DIGITOS   [0-9]{4}
 CONSONANTESEUROPEAS [B-DF-HJ-NPR-TV-Z]{3}
 ID       [a-z][a-z0-9]*
+FINAL    {DIGITOS}[ -]*{CONSONANTESEUROPEAS}([^A-Za-z0-9]|"\0")
+
 PROVINCIAL [A-Z][A-Z]?{DIGITOS}[A-Z]{2}([^A-Za-z0-9]|"\0")
-EUROPEAS (\b)?{DIGITOS}[ -]*{CONSONANTESEUROPEAS}([^A-Za-z0-9]|"\0")
+EUROPEAS (\b)?{FINAL}
 FUERZAESTADO  (\b)?("PGC"|"CNP"|"ET"|"EA"|"FN"|"E"|"CGPC")[ -]*{DIGITOS}[ -]*[B-DF-HJ-NPR-TV-Z]([^A-Za-z0-9]|"\0")
-CICLOMOTOR  (\b)?"C"[ -]*{DIGITOS}[ -]*{CONSONANTESEUROPEAS}([^A-Za-z0-9]|"\0")
+CICLOMOTOR  (\b)?"C"[ -]*{FINAL}
 DIPLOMATICAS  (\b)?("CD"|"CC"|"TA"|OI)[ -]*[0-9]{2}[ -]*[0-9]{3}([^A-Za-z0-9]|"\0")
-REMOLQUES  (\b)?"R"[ -]*{DIGITOS}[ -]*{CONSONANTESEUROPEAS}([^A-Za-z0-9]|"\0")
-QUADS  (\b)?"E"[ -]*{DIGITOS}[ -]*{CONSONANTESEUROPEAS}([^A-Za-z0-9]|"\0")
-PROVISIONAL  (\b)?("P"|"S"|"B")[ -]*{DIGITOS}[ -]*{CONSONANTESEUROPEAS}([^A-Za-z0-9]|"\0")
-TURISTICAS  (\b)?"T"[ -]*{DIGITOS}[ -]*{CONSONANTESEUROPEAS}([^A-Za-z0-9]|"\0")
-HISTORICO  (\b)?"H"[ -]*{DIGITOS}[ -]*{CONSONANTESEUROPEAS}([^A-Za-z0-9]|"\0")
+REMOLQUES  (\b)?"R"[ -]*{FINAL}
+QUADS  (\b)?"E"[ -]*{FINAL}
+PROVISIONAL  (\b)?("P"|"S"|"B")[ -]*{FINAL}
+TURISTICAS  (\b)?"T"[ -]*{FINAL}
+HISTORICO  (\b)?"H"[ -]*{FINAL}
 
 %%
 

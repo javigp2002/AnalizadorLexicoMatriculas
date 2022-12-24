@@ -782,7 +782,7 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 40 "analizadorLexico.l"
+#line 42 "analizadorLexico.l"
 
 
 #line 789 "lex.yy.c"
@@ -870,7 +870,7 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 42 "analizadorLexico.l"
+#line 44 "analizadorLexico.l"
 {
         char * x ;
         x = yytext;
@@ -881,7 +881,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 50 "analizadorLexico.l"
+#line 52 "analizadorLexico.l"
 {
         char * x ;
         x = yytext;
@@ -894,7 +894,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 60 "analizadorLexico.l"
+#line 62 "analizadorLexico.l"
 {  
         char * x ;
         x = yytext;
@@ -905,7 +905,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 68 "analizadorLexico.l"
+#line 70 "analizadorLexico.l"
 {   
         char * x ;
         x = yytext;
@@ -916,7 +916,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 76 "analizadorLexico.l"
+#line 78 "analizadorLexico.l"
 {    
         char * x ;
         x = yytext;
@@ -927,7 +927,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 84 "analizadorLexico.l"
+#line 86 "analizadorLexico.l"
 {      
         char * x ;
         x = yytext;
@@ -939,7 +939,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 93 "analizadorLexico.l"
+#line 95 "analizadorLexico.l"
 {
         char * x ;
         x = yytext;
@@ -950,7 +950,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 101 "analizadorLexico.l"
+#line 103 "analizadorLexico.l"
 {  
         char * x ;
         x = yytext;
@@ -961,7 +961,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 109 "analizadorLexico.l"
+#line 111 "analizadorLexico.l"
 {    
         char * x ;
         x = yytext;
@@ -972,7 +972,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 117 "analizadorLexico.l"
+#line 119 "analizadorLexico.l"
 {    
         char * x ;
         x = yytext;
@@ -983,12 +983,12 @@ YY_RULE_SETUP
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 124 "analizadorLexico.l"
+#line 126 "analizadorLexico.l"
 {}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 125 "analizadorLexico.l"
+#line 127 "analizadorLexico.l"
 ECHO;
 	YY_BREAK
 #line 995 "lex.yy.c"
@@ -1877,7 +1877,7 @@ int main()
 	return 0;
 	}
 #endif
-#line 125 "analizadorLexico.l"
+#line 127 "analizadorLexico.l"
 
 
 int main( int argc, char ** argv ) {
