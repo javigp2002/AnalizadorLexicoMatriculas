@@ -5,13 +5,13 @@ matrícula quad válida: E0000BFF
 
 matrícula Fuerzas del Estado válida: PGC1259H
 
-matrícula ciclomotor válida: C4124ZZZ
+matrícula ciclomotor válida: C 4124 ZZZ
 
 matrícula diplomática válida: CC 12 325
 
 matrícula remolque válida: R-1234-FGZ
 
-matrícula provisional válida: S-2321-ZZ
+matrícula provisional válida: P-2321-HJ
 
 matrícula provincial válida: AA-1515-AA
 

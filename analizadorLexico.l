@@ -25,25 +25,29 @@ int compruebaSintaxis(char * matricula) {
 /*[^A-Za-z0-9]? */
 DIGITOS   [0-9]{4}
 CONSONANTESEUROPEAS [B-DF-HJ-NPR-TV-Z]{3}
+CONSONANTESDIPLOMATICAS ("CD"|"CC"|"TA"|OI)
+FINALFUERZASDELESTADO [B-DF-HJ-NPR-TV-Z]
+CABECERAFUERZASDELESTADO ("PGC"|"CNP"|"ET"|"EA"|"FN"|"E"|"CGPC")
+CONSONANTESPROVISIONALES ("P"|"S"|"B")
 ID       [a-z][a-z0-9]*
 FIN_PALABRA ([^A-Za-z0-9]|"\0")
 FINAL    {DIGITOS}[ -]*{CONSONANTESEUROPEAS}{FIN_PALABRA}
 
 PROVINCIAL [A-Z][A-Z]?{DIGITOS}[A-Z]{2}{FIN_PALABRA}
 EUROPEAS (\b)?{FINAL}
-FUERZAESTADO  (\b)?("PGC"|"CNP"|"ET"|"EA"|"FN"|"E"|"CGPC")[ -]*{DIGITOS}[ -]*[B-DF-HJ-NPR-TV-Z]{FIN_PALABRA}
+FUERZAESTADO  (\b)?{CABECERAFUERZASDELESTADO}[ -]*{DIGITOS}[ -]*{FINALFUERZASDELESTADO}{FIN_PALABRA}
 CICLOMOTOR  (\b)?"C"[ -]*{FINAL}
-DIPLOMATICAS  (\b)?("CD"|"CC"|"TA"|OI)[ -]*[0-9]{2}[ -]*[0-9]{3}{FIN_PALABRA}
+DIPLOMATICAS  (\b)?{CONSONANTESDIPLOMATICAS}[ -]*[0-9]{2}[ -]*[0-9]{3}{FIN_PALABRA}
 REMOLQUES  (\b)?"R"[ -]*{FINAL}
 QUADS  (\b)?"E"[ -]*{FINAL}
-PROVISIONAL  (\b)?("P"|"S"|"B")[ -]*{FINAL}
+PROVISIONAL  (\b)?{CONSONANTESPROVISIONALES}[ -]*{FINAL}
 TURISTICAS  (\b)?"T"[ -]*{FINAL}
 HISTORICO  (\b)?"H"[ -]*{FINAL}
 
 %%
 
 {EUROPEAS}   {
-        char * x ;
+        char * x ;z
         x = yytext;
 
         if(compruebaSintaxis(x) == 1)
@@ -56,8 +60,6 @@ HISTORICO  (\b)?"H"[ -]*{FINAL}
         
         if(compruebaSintaxis(x) == 1)
                 printf("MATRICULA FUERZAS DEL ESTADO: %s\n", x);
-        else    
-                printf("FUERZAS DEL ESTADO NO PASÓ EL TEST.\n");
 }
 
 {CICLOMOTOR}   {  

@@ -888,13 +888,11 @@ YY_RULE_SETUP
         
         if(compruebaSintaxis(x) == 1)
                 printf("MATRICULA FUERZAS DEL ESTADO: %s\n", x);
-        else    
-                printf("FUERZAS DEL ESTADO NO PASÓ EL TEST.\n");
 }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 63 "analizadorLexico.l"
+#line 61 "analizadorLexico.l"
 {  
         char * x ;
         x = yytext;
@@ -905,7 +903,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 71 "analizadorLexico.l"
+#line 69 "analizadorLexico.l"
 {   
         char * x ;
         x = yytext;
@@ -916,7 +914,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 79 "analizadorLexico.l"
+#line 77 "analizadorLexico.l"
 {    
         char * x ;
         x = yytext;
@@ -927,7 +925,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 87 "analizadorLexico.l"
+#line 85 "analizadorLexico.l"
 {      
         char * x ;
         x = yytext;
@@ -939,7 +937,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 96 "analizadorLexico.l"
+#line 94 "analizadorLexico.l"
 {
         char * x ;
         x = yytext;
@@ -950,7 +948,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 104 "analizadorLexico.l"
+#line 102 "analizadorLexico.l"
 {  
         char * x ;
         x = yytext;
@@ -961,7 +959,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 112 "analizadorLexico.l"
+#line 110 "analizadorLexico.l"
 {    
         char * x ;
         x = yytext;
@@ -972,7 +970,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 120 "analizadorLexico.l"
+#line 118 "analizadorLexico.l"
 {    
         char * x ;
         x = yytext;
@@ -983,15 +981,15 @@ YY_RULE_SETUP
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 127 "analizadorLexico.l"
+#line 125 "analizadorLexico.l"
 {}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 128 "analizadorLexico.l"
+#line 126 "analizadorLexico.l"
 ECHO;
 	YY_BREAK
-#line 995 "lex.yy.c"
+#line 993 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1877,7 +1875,7 @@ int main()
 	return 0;
 	}
 #endif
-#line 128 "analizadorLexico.l"
+#line 126 "analizadorLexico.l"
 
 
 int main( int argc, char ** argv ) {
