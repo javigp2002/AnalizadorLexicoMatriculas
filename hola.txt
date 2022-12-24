@@ -1,2 +1,16 @@
-HOLA MI SOY 2002  CHRISTIAN Y TENGO EL COCHE AUDIO CON MATRICULA 3333DDD AUNQUE TAMBIEN TENGOUN
-TOYOTA 4444-ZCD VIVO EN 32133CDC Y TENGO UN C 9094 DDD
+HOLA MI SOY 2002 CHRISTIAN Y TENGO EL COCHE AUDIO CON MATRICULA 3333ZZZ AUNQUE TAMBIEN TENGOUN
+TOYOTA 4444-ZCD VIVO EN 3 2133CDC s Y TENGO UN TT0000F
+
+matrícula quad válida: E0000BFF
+
+matrícula Fuerzas del Estado válida: PGC1259H
+
+matrícula ciclomotor válida: C4124ZZZ
+
+matrícula diplomática válida: CC 12 325
+
+matrícula remolque válida: R-1234-FGZ
+
+matrícula provisional válida: S-2321-ZZ
+
+matrícula provincial válida: AA1515AA

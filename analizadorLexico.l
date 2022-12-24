@@ -1,18 +1,33 @@
 %{
-/* se necesita esto para la llamada a atof() m�s abajo */
+/* se necesita esto para la llamada a atof() más abajo */
 #include <math.h>
 #include <stdio.h>
 #include <string.h>
-int matriculas=0;
+
+int matriculas = 0;
+
+int compruebaSintaxis(char * matricula) {
+        int correcto = 0;
+
+        if (matricula[strlen(matricula) - 1] != '\0')
+                matricula[strlen(matricula) - 1] = '\0';
+
+        if (matricula[-1] == ' ' || matricula[-1] == '\b' || matricula[-1] == '"') {
+                correcto = 1;
+                matriculas++;
+        }
+
+        return correcto;
+}
+
 %}
 
 /*[^A-Za-z0-9]? */
 DIGITOS   [0-9]{4}
 CONSONANTESEUROPEAS [B-DF-HJ-NPR-TV-Z]{3}
 ID       [a-z][a-z0-9]*
-PROVINCIAL ([A-Z][A-Z]?{DIGITOS}[A-Z]{2})
+PROVINCIAL [A-Z][A-Z]?{DIGITOS}[A-Z]{2}([^A-Za-z0-9]|"\0")
 EUROPEAS (\b)?{DIGITOS}[ -]*{CONSONANTESEUROPEAS}([^A-Za-z0-9]|"\0")
-
 FUERZAESTADO  (\b)?("PGC"|"CNP"|"ET"|"EA"|"FN"|"E"|"CGPC")[ -]*{DIGITOS}[ -]*[B-DF-HJ-NPR-TV-Z]([^A-Za-z0-9]|"\0")
 CICLOMOTOR  (\b)?"C"[ -]*{DIGITOS}[ -]*{CONSONANTESEUROPEAS}([^A-Za-z0-9]|"\0")
 DIPLOMATICAS  (\b)?("CD"|"CC"|"TA"|OI)[ -]*[0-9]{2}[ -]*[0-9]{3}([^A-Za-z0-9]|"\0")
@@ -24,56 +39,92 @@ HISTORICO  (\b)?"H"[ -]*{DIGITOS}[ -]*{CONSONANTESEUROPEAS}([^A-Za-z0-9]|"\0")
 
 %%
 
-{PROVINCIAL}+   {
-            printf( "MATRICULA PROVINCIAL: %s\n", yytext);
-            }
-
-
-
 {EUROPEAS}   {
-        matriculas++;
-       char * x ;
+        char * x ;
         x = yytext;
-        if (  x[strlen(x) - 1] != '\0')
-                x[strlen(x) - 1] = '\0';
-        printf( "MATRICULA EUROPEA ACTUAL: %s\n", x);
+
+        if(compruebaSintaxis(x) == 1)
+                printf("MATRICULA EUROPEA MODERNA: %s\n", x);
 }
 
-
-{FUERZAESTADO}+   {
-       
-            printf( "MATRICULA DE FUERZA DEL ESTADO: %s\n", yytext);
-            }
-{CICLOMOTOR}+   {      
-            printf( "MATRICULA DE CICLOMOTOR: %s\n", yytext);
+{FUERZAESTADO}   {
+        char * x ;
+        x = yytext;
+        
+        if(compruebaSintaxis(x) == 1)
+                printf("MATRICULA FUERZAS DEL ESTADO: %s\n", x);
+        else    
+                printf("FUERZAS DEL ESTADO NO PASÓ EL TEST.\n");
 }
 
-{DIPLOMATICAS}+   {      
-            printf( "MATRICULA DIPLOMATICA: %s\n", yytext);
-}
-{REMOLQUES}+   {      
-            printf( "MATRICULA DE REMOLQUE: %s\n", yytext);
+{CICLOMOTOR}   {  
+        char * x ;
+        x = yytext;
+
+        if(compruebaSintaxis(x) == 1)
+                printf("MATRICULA CICLOMOTOR: %s\n", x);
 }
 
-{QUADS}+   {      
-            printf( "MATRICULA DE QUAD: %s\n", yytext);
+{DIPLOMATICAS}   {   
+        char * x ;
+        x = yytext;
+
+        if(compruebaSintaxis(x) == 1)
+                printf("MATRICULA DIPLOMATICA: %s\n", x);
 }
 
-{PROVISIONAL}+   {      
-            printf( "MATRICULA PROVISIONAL: %s\n", yytext);
+{REMOLQUES}   {    
+        char * x ;
+        x = yytext;
+
+        if(compruebaSintaxis(x) == 1)
+                printf("MATRICULA REMOLQUES: %s\n", x);
 }
 
-{TURISTICAS}+   {      
-            printf( "MATRICULA TURISTICA: %s\n", yytext);
+{QUADS}   {      
+        char * x ;
+        x = yytext;
+
+        if(compruebaSintaxis(x) == 1)
+                printf("MATRICULA QUAD: %s\n", x);
+
 }
 
-{HISTORICO}+   {      
-            printf( "MATRICULA HISTORICA: %s\n", yytext);
+{PROVINCIAL}   {
+        char * x ;
+        x = yytext;
+
+       if(compruebaSintaxis(x) == 1)
+                printf("MATRICULA PROVINCIAL: %s\n", x);
+}
+
+{PROVISIONAL}   {  
+        char * x ;
+        x = yytext;
+
+        if(compruebaSintaxis(x) == 1)
+                printf("MATRICULA PROVISIONAL: %s\n", x);
+}
+
+{TURISTICAS}   {    
+        char * x ;
+        x = yytext;
+
+        if(compruebaSintaxis(x) == 1)
+                printf("MATRICULA TURISTICA: %s\n", x);
+}
+
+{HISTORICO}   {    
+        char * x ;
+        x = yytext;
+
+        if(compruebaSintaxis(x) == 1)
+                printf("MATRICULA HISTORICO: %s\n", x);
 }
 .                       {}
 %%
 
-int main( int argc, char ** argv ){
+int main( int argc, char ** argv ) {
         ++argv, --argc;  /* se salta el nombre del programa */
 
         if ( argc > 0 )
@@ -81,6 +132,6 @@ int main( int argc, char ** argv ){
         else
                 yyin = stdin;
         yylex();
-        printf("Encontre %i matriculas\n",  matriculas);
 
+        printf("Encontre %i matriculas\n",  matriculas);
 }
